@@ -1,0 +1,33 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>ProteinPrep | Structure preparation</title>
+  <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+<header class="top"><div class="brand"><span class="mark">P</span><div><b>ProteinPrep</b><small>STRUCTURE PREPARATION WORKSPACE</small></div></div><span class="local">LOCAL APPLICATION</span></header>
+<main>
+  <section class="hero"><p class="eyebrow">AUTOMATED WORKFLOW</p><h1>Prepare a protein structure.</h1><p class="sub">Upload-free first run: retrieve a structure from RCSB, select a chain, repair atoms, add hydrogens and validate the outputs.</p></section>
+  <section class="panel">
+    <h2>Input structure</h2>
+    <div class="fields">
+      <label>PDB identifier<input id="pdb" value="9AV4" maxlength="4"></label>
+      <label>Chain ID<input id="chain" value="A" maxlength="2"></label>
+      <label>Hydrogenation pH<input id="ph" value="7.4" disabled><small>Currently fixed at pH 7.4 in this MVP</small></label>
+    </div>
+    <button id="run">Process protein <span>→</span></button>
+    <p class="hint">First configured example: PDB 9AV4, chain A.</p>
+  </section>
+  <section id="progress" class="panel hidden"><div class="progress-head"><h2>Processing</h2><span id="state">Running</span></div><div class="bar"><i></i></div><p id="progressText">Retrieving structure and preparing chain…</p></section>
+  <section id="results" class="hidden">
+    <div class="result-head"><div><p class="eyebrow">PROCESSING REPORT</p><h2>Validation results</h2></div><span id="overall" class="pill">Complete</span></div>
+    <div id="summary" class="summary"></div>
+    <div class="panel"><h3>Checks</h3><div id="checks"></div></div>
+    <div class="panel"><h3>Output files</h3><div id="files"></div></div>
+    <div id="warnings" class="warning hidden"></div>
+  </section>
+  <footer>ProteinPrep MVP · Local processing · Review scientific warnings before docking</footer>
+</main>
+<script src="/static/app.js"></script>
+</body></html>
